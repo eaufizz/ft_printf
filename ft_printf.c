@@ -6,7 +6,7 @@
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:41:35 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/14 20:29:28 by sreo             ###   ########.fr       */
+/*   Updated: 2024/05/14 21:40:50 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 int ft_printf(const char *format, ...)
 {
-	
+	va_list args;
+	va_start(args, format);
+	while(format != NULL)
+	{
+		
+	}
 }
 
 int main (void)
