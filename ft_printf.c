@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:41:35 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/18 14:11:28 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/19 01:02:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,4 @@ int ft_printf(const char *format, ...)
 		i++;
 	}
 	return count;
-}
-
-#include <stdio.h>
-
-int main (void)
-{
-	int i = 349813742;
-	unsigned int j = 4073829472;
-	char num = '7';
-	char str[30] = "HelloWorld!";
-	char *ptr = &num;
-	printf("テスト結果(本家)----------------------\n");
-	printf("返り値：%d\n", printf("%%S %s C %c P %p D %d I %i U %u X %x %X\n", str, num, ptr, i, i, j, i, i));
-	printf("テスト結果(自作)----------------------\n");
-	printf("返り値：%d\n", ft_printf("%%S %s C %c P %p D %d I %i U %u X %x %X\n", str, num, ptr, i, i, j, i, i));
-	return 0;
 }
