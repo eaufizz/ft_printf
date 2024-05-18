@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:41:35 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/17 14:33:07 by boss             ###   ########.fr       */
+/*   Updated: 2024/05/18 14:11:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,13 @@ int ft_printf(const char *format, ...)
 	va_start(args, format);
 	while(format[i])
 	{
-		if(format[i] == '%')
-			count += format_processor(format[++i], args);
+		if(format[i] == '%' && format[i + 1])
+		{
+			if(format[i + 1] == '%')
+				count += ft_putchr(format[++i]);
+			else
+				count += format_processor(format[++i], args);
+		}
 		else
 			count += ft_putchr(format[i]);
 		i++;
@@ -36,14 +41,14 @@ int ft_printf(const char *format, ...)
 
 int main (void)
 {
-	int i = 3;
+	int i = 349813742;
+	unsigned int j = 4073829472;
 	char num = '7';
 	char str[30] = "HelloWorld!";
 	char *ptr = &num;
-	
-	printf("%d\n", (int)ft_strlen(str) + 1);
-	printf("%d\n", printf("%sass%co%p\n", str, num, (void *)str));
-	ft_printf("%d\n", (int)ft_strlen(str) + 1);
-	printf("%d\n", ft_printf("%sass%co%p\n", str, num, (void *)str));
+	printf("テスト結果(本家)----------------------\n");
+	printf("返り値：%d\n", printf("%%S %s C %c P %p D %d I %i U %u X %x %X\n", str, num, ptr, i, i, j, i, i));
+	printf("テスト結果(自作)----------------------\n");
+	printf("返り値：%d\n", ft_printf("%%S %s C %c P %p D %d I %i U %u X %x %X\n", str, num, ptr, i, i, j, i, i));
 	return 0;
 }

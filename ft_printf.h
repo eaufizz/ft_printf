@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 19:42:25 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/17 14:25:37 by boss             ###   ########.fr       */
+/*   Updated: 2024/05/18 14:22:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdint.h>
 #include "libft/libft.h"
 
 int ft_printf(const char *format, ...);
+int format_processor(char sign, va_list args);
 int ft_putchr(int c);
 int ft_putstr(char *str);
-int format_processor(char sign, va_list args);
-int ft_putptr(void *ptr);
+int ft_putptr(unsigned long long ptr);
+int ft_putnbr(int nbr);
+int ft_uitoa(unsigned int n);
+int ft_itoh(unsigned int nbr, char sign);
 
 #endif
