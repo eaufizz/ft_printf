@@ -18,4 +18,6 @@ int format_processor(char sign, va_list args)
         return ft_putchr(va_arg(args, int));
     else if(sign == 's')
         return ft_putstr(va_arg(args, char *));
+    else if (sign == 'p')
+        return ft_putptr(va_arg(args, void *));
 }

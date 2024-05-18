@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:41:35 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/16 23:36:53 by marvin           ###   ########.fr       */
+/*   Updated: 2024/05/17 14:33:07 by boss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ int main (void)
 	int i = 3;
 	char num = '7';
 	char str[30] = "HelloWorld!";
+	char *ptr = &num;
 	
 	printf("%d\n", (int)ft_strlen(str) + 1);
-	printf("%d\n", printf("%sass%c\n", str, num));
+	printf("%d\n", printf("%sass%co%p\n", str, num, (void *)str));
 	ft_printf("%d\n", (int)ft_strlen(str) + 1);
-	printf("%d\n", ft_printf("%sass%c\n", str, num));
+	printf("%d\n", ft_printf("%sass%co%p\n", str, num, (void *)str));
 	return 0;
 }

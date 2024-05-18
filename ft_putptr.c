@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: boss <boss@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 19:42:25 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/17 14:25:37 by boss             ###   ########.fr       */
+/*   Created: 2024/05/17 14:19:22 by boss              #+#    #+#             */
+/*   Updated: 2024/05/17 14:31:56 by boss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <stddef.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "libft/libft.h"
-
-int ft_printf(const char *format, ...);
-int ft_putchr(int c);
-int ft_putstr(char *str);
-int format_processor(char sign, va_list args);
-int ft_putptr(void *ptr);
-
-#endif
+int ft_putptr(void *ptr)
+{
+    write(1, &ptr, 8);
+    return 8;
+}
