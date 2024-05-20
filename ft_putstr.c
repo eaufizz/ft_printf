@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 15:14:51 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/20 15:14:51 by sreo             ###   ########.fr       */
+/*   Created: 2024/05/20 15:26:19 by sreo              #+#    #+#             */
+/*   Updated: 2024/05/20 15:26:19 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
-int ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while(str[i])
-    {
-        write(1, &str[i], 1);
-        i++;
-    }
-    return i;
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }
