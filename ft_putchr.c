@@ -5,15 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 15:25:40 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/20 15:25:40 by sreo             ###   ########.fr       */
+/*   Created: 2024/05/20 21:36:08 by sreo              #+#    #+#             */
+/*   Updated: 2024/05/20 21:36:08 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putchr(int c)
 {
-	write(1, &c, 1);
-	return (1);
+	if (write(1, &c, 1) == 1)
+		return (1);
+	else
+		return (-1);
 }

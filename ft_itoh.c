@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 15:25:27 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/20 15:25:27 by sreo             ###   ########.fr       */
+/*   Created: 2024/05/20 21:34:37 by sreo              #+#    #+#             */
+/*   Updated: 2024/05/20 21:34:37 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_itoh(unsigned int nbr, char sign)
 {
@@ -20,7 +20,7 @@ int	ft_itoh(unsigned int nbr, char sign)
 
 	ft_bzero(str, 11);
 	i = 0;
-	while (nbr != 0)
+	while (nbr != 0 || i == 0)
 	{
 		temp = nbr % 16;
 		if (temp < 10)
@@ -33,8 +33,8 @@ int	ft_itoh(unsigned int nbr, char sign)
 		i++;
 	}
 	temp = i;
-	i++;
 	while (--i >= 0)
-		write(1, &str[i], 1);
+		if (write(1, &str[i], 1) == -1)
+			return (-1);
 	return (temp);
 }

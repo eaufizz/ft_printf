@@ -6,11 +6,19 @@
 /*   By: sreo <sreo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:14:09 by sreo              #+#    #+#             */
-/*   Updated: 2024/05/20 19:04:32 by sreo             ###   ########.fr       */
+/*   Updated: 2024/05/20 21:35:56 by sreo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
+
+void	errorcheck(int *count, int value)
+{
+	if (value == -1)
+		*count = -1;
+	else
+		*count += value;
+}
 
 int	ft_printf(const char *format, ...)
 {
@@ -21,17 +29,17 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	count = 0;
 	va_start(args, format);
-	while (format[i])
+	while (format[i] && count != -1)
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
 			if (format[i + 1] == '%')
-				count += ft_putchr(format[++i]);
+				errorcheck(&count, ft_putchr(format[++i]));
 			else
-				count += format_processor(format[++i], args);
+				errorcheck(&count, format_processor(format[++i], args));
 		}
 		else
-			count += ft_putchr(format[i]);
+			errorcheck(&count, ft_putchr(format[i]));
 		i++;
 	}
 	return (count);

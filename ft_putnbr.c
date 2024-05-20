@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr(int nbr)
 {
@@ -18,6 +18,8 @@ int	ft_putnbr(int nbr)
 	char	*str;
 
 	str = ft_itoa(nbr);
+	if (str == NULL)
+		return (-1);
 	count = ft_putstr(str);
 	free(str);
 	return (count);
